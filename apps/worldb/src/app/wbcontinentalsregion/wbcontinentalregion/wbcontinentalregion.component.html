@@ -1,0 +1,23 @@
+<pb-contregions-contregions-template [continentalregions]="continentalregions">
+  <main>
+    <div>
+      <i>id:</i> {{ continentalregions.id }}
+      <i>iso2Code:</i> {{ continentalregions.iso2Code }}
+      <i>capitalCity:</i> {{ continentalregions.capitalCity }}
+      <i>longitude:</i> {{ continentalregions.longitude }}
+      <i>latitude:</i> {{ continentalregions.latitude }}
+    </div>
+  </main>
+  <div class="parentinformation">
+    <i>id:</i> {{ continentalregions.region.id }}
+    <i>iso2code:</i> {{ continentalregions.region.iso2code }}
+    <i>value:</i> {{ continentalregions.region.value }}
+  </div>
+  <nav class="actions">
+    <a routerLink="../country"
+            [queryParams]="{ prop: continentalregions.id }"
+            class="button">
+            <span> Country</span>
+      </a>
+  </nav>
+</pb-contregions-contregions-template>

@@ -1,0 +1,16 @@
+<div class="box">
+  <div class="row header">
+    <pb-lui-header></pb-lui-header>
+    <a routerLink="regions" class="button">
+      <span> Regions</span>
+    </a>
+    <span *ngIf="idRegion" style="margin-left: 10px;">Last ID Region clicked: {{ idRegion }}</span>
+  </div>
+  <div class="row content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row footer">
+    <pb-lui-footer></pb-lui-footer>
+  </div>
+</div>
+

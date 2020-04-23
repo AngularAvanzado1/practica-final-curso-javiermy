@@ -1,0 +1,51 @@
+{
+  "npmScope": "practica-final",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "worldb": {
+      "tags": []
+    },
+    "worldb-e2e": {
+      "tags": [],
+      "implicitDependencies": ["worldb"]
+    },
+    "shared-domain": {
+      "tags": []
+    },
+    "shared-ui": {
+      "tags": []
+    },
+    "layout-domain": {
+      "tags": []
+    },
+    "layout-lui": {
+      "tags": []
+    },
+    "regions": {
+      "tags": []
+    },
+    "contregions": {
+      "tags": []
+    },
+    "countrycr": {
+      "tags": []
+    }
+  }
+}

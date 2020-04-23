@@ -1,0 +1,32 @@
+<pb-countrycr-countrycr-template [contrycr]="contrycr">
+  <main>
+    <div>
+      <i>id:</i> {{ contrycr.id }}
+      <i>iso2Code:</i> {{ contrycr.iso2Code }}
+      <i>capitalCity:</i> {{ contrycr.capitalCity }}
+      <i>longitude:</i> {{ contrycr.longitude }}
+      <i>latitude:</i> {{ contrycr.latitude }}
+    </div>
+  </main>
+  <div class="parentinformation">
+    <i>id:</i> {{ contrycr.region.id }}
+    <i>iso2code:</i> {{ contrycr.region.iso2code }}
+    <i>value:</i> {{ contrycr.region.value }}
+  </div>
+  <div class="adminregioninformation">
+    <i>id:</i> {{ contrycr.adminregion.id }}
+    <i>iso2code:</i> {{ contrycr.adminregion.iso2code }}
+    <i>value:</i> {{ contrycr.adminregion.value }}
+  </div>
+  <div class="incomeLevelinformation">
+    <i>id:</i> {{ contrycr.incomeLevel.id }}
+    <i>iso2code:</i> {{ contrycr.incomeLevel.iso2code }}
+    <i>value:</i> {{ contrycr.incomeLevel.value }}
+  </div>
+  <div class="lendingTypeformation">
+    <i>id:</i> {{ contrycr.lendingType.id }}
+    <i>iso2code:</i> {{ contrycr.lendingType.iso2code }}
+    <i>value:</i> {{ contrycr.lendingType.value }}
+    <button (click)="onClickMe(contrycr.id)">Click me!</button>
+  </div>
+</pb-countrycr-countrycr-template>

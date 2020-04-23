@@ -1,0 +1,20 @@
+<article style="margin: 5px; padding: 5px; border: 2px; border-style: solid;">
+  <header>
+    <h2>{{ contrycr.name }}</h2>
+  </header>
+  <main>
+    <ng-content select="main"></ng-content>
+  </main>
+  <div style="margin-left: 10px; font-size: small;">
+    <ng-content select=".parentinformation"></ng-content>
+  </div>
+  <div style="margin-left: 10px; font-size: small;">
+    <ng-content select=".adminregioninformation"></ng-content>
+  </div>
+  <div style="margin-left: 10px; font-size: small;">
+    <ng-content select=".incomeLevelinformation"></ng-content>
+  </div>
+  <div style="margin-left: 10px; font-size: small;">
+    <ng-content select=".lendingTypeformation"></ng-content>
+  </div>
+</article>

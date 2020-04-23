@@ -1,0 +1,16 @@
+<pb-regions-region-template [region]="region">
+  <main>
+    <div>
+      <i>id:</i> {{ region.id }}
+      <i>code:</i> {{ region.code }}
+      <i>iso2Code:</i> {{ region.iso2code }}
+    </div>
+  </main>
+  <nav class="actions">
+    <a routerLink="../cregion"
+            [queryParams]="{ prop: region.code }"
+            class="button">
+            <span> Continentals region</span>
+      </a>
+  </nav>
+</pb-regions-region-template>

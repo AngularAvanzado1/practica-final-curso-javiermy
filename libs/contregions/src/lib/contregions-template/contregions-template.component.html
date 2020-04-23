@@ -1,0 +1,14 @@
+<article style="margin: 5px; padding: 5px; border: 2px; border-style: solid;">
+  <header>
+    <h2>{{ continentalregions.name }}</h2>
+  </header>
+  <main>
+    <ng-content select="main"></ng-content>
+  </main>
+  <div style="margin-left: 10px; font-size: small;">
+    <ng-content select=".parentinformation"></ng-content>
+  </div>
+  <footer style="margin-top: 10px">
+    <ng-content select=".actions"></ng-content>
+  </footer>
+</article>

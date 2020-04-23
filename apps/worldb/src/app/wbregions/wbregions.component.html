@@ -1,0 +1,9 @@
+<section *ngIf="catalog$ | async as catalog">
+  <wb-region *ngFor="let region of catalog"
+              [region]="region">
+  </wb-region>
+</section>
+
+<!-- <pre>
+  {{catalog$| async | json }}
+</pre> -->

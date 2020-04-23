@@ -1,0 +1,330 @@
+{
+  "version": 1,
+  "projects": {
+    "worldb": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "inlineStyle": true
+        }
+      },
+      "root": "apps/worldb",
+      "sourceRoot": "apps/worldb/src",
+      "prefix": "wb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/worldb",
+            "index": "apps/worldb/src/index.html",
+            "main": "apps/worldb/src/main.ts",
+            "polyfills": "apps/worldb/src/polyfills.ts",
+            "tsConfig": "apps/worldb/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/worldb/src/favicon.ico", "apps/worldb/src/assets"],
+            "styles": ["apps/worldb/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/worldb/src/environments/environment.ts",
+                  "with": "apps/worldb/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "worldb:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "worldb:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "worldb:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/worldb/tsconfig.app.json",
+              "apps/worldb/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/worldb/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/worldb/jest.config.js",
+            "tsConfig": "apps/worldb/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/worldb/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "worldb-e2e": {
+      "root": "apps/worldb-e2e",
+      "sourceRoot": "apps/worldb-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/worldb-e2e/cypress.json",
+            "tsConfig": "apps/worldb-e2e/tsconfig.e2e.json",
+            "devServerTarget": "worldb:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "worldb:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/worldb-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/worldb-e2e/**"]
+          }
+        }
+      }
+    },
+    "shared-domain": {
+      "root": "libs/shared/domain",
+      "sourceRoot": "libs/shared/domain/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/domain/tsconfig.lib.json",
+              "libs/shared/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/domain/jest.config.js",
+            "tsConfig": "libs/shared/domain/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-ui": {
+      "projectType": "library",
+      "root": "libs/shared/ui",
+      "sourceRoot": "libs/shared/ui/src",
+      "prefix": "pb-ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/ui/tsconfig.lib.json",
+              "libs/shared/ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/ui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/ui/jest.config.js",
+            "tsConfig": "libs/shared/ui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/ui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "layout-domain": {
+      "root": "libs/layout/domain",
+      "sourceRoot": "libs/layout/domain/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/domain/tsconfig.lib.json",
+              "libs/layout/domain/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/layout/domain/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/layout/domain/jest.config.js",
+            "tsConfig": "libs/layout/domain/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "layout-lui": {
+      "projectType": "library",
+      "root": "libs/layout/lui",
+      "sourceRoot": "libs/layout/lui/src",
+      "prefix": "pb-lui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/layout/lui/tsconfig.lib.json",
+              "libs/layout/lui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/layout/lui/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/layout/lui/jest.config.js",
+            "tsConfig": "libs/layout/lui/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/layout/lui/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "regions": {
+      "projectType": "library",
+      "root": "libs/regions",
+      "sourceRoot": "libs/regions/src",
+      "prefix": "pb-regions",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/regions/tsconfig.lib.json",
+              "libs/regions/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/regions/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/regions/jest.config.js",
+            "tsConfig": "libs/regions/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/regions/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "contregions": {
+      "projectType": "library",
+      "root": "libs/contregions",
+      "sourceRoot": "libs/contregions/src",
+      "prefix": "pb-contregions",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/contregions/tsconfig.lib.json",
+              "libs/contregions/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/contregions/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/contregions/jest.config.js",
+            "tsConfig": "libs/contregions/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/contregions/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "countrycr": {
+      "projectType": "library",
+      "root": "libs/countrycr",
+      "sourceRoot": "libs/countrycr/src",
+      "prefix": "pb-countrycr",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/countrycr/tsconfig.lib.json",
+              "libs/countrycr/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/countrycr/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/countrycr/jest.config.js",
+            "tsConfig": "libs/countrycr/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/countrycr/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "worldb"
+}
